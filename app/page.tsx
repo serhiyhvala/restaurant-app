@@ -1,9 +1,7 @@
-const Home = () => {
-  return (
-    <div>
-      Home
-    </div>
-  );
-};
+import ProductList from '@components/ProductList'
 
-export default Home;
+const Home = () => {
+	return <ProductList />
+}
+
+export default Home
