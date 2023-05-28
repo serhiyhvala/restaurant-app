@@ -4,3 +4,11 @@
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
+
+:root {
+    --width-container: 1230px
+}
+
+a {
+    text-decoration: none;
+}
