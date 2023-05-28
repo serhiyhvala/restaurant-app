@@ -1,9 +1,12 @@
 'use client'
 
+import { setNewCategory } from '@store/slices/productsSlice'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import Loader from '@components/Header/Loader'
+
+import { useAppDispatch, useAppSelector } from '@hooks/index'
 
 import { useGetCategoriesQuery } from '@services/index'
 
@@ -13,6 +16,8 @@ import styles from './header.module.scss'
 
 const Header = () => {
 	const { data, isLoading } = useGetCategoriesQuery('/categories')
+	const { category } = useAppSelector(state => state.product)
+	const dispatch = useAppDispatch()
 	return (
 		<header className={styles.wrapper}>
 			<div className={styles.header}>
@@ -28,14 +33,19 @@ const Header = () => {
 				<ul className={styles.menu}>
 					{isLoading
 						? new Array(4).fill(null).map(item => <Loader />)
-						: data?.map(item => (
-								<li key={item._id}>
-									<Link href={item.slug} className={styles.link}>
+						: data?.map(item => {
+								const isActive = category === item.slug ? styles.active : ''
+								return (
+									<li
+										key={item._id}
+										className={`${styles.link} ${isActive}`}
+										onClick={() => dispatch(setNewCategory(item.slug))}
+									>
 										<IconComponent icon={item.icon} />
 										{item.title}
-									</Link>
-								</li>
-						  ))}
+									</li>
+								)
+						  })}
 				</ul>
 				<div className={styles.cart}>
 					<Link href='/'>
