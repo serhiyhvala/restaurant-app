@@ -21,3 +21,7 @@ img {
     height: 100%;
     outline: none;
 }
+
+body {
+    background-color: #ead7c0;
+}

@@ -10,7 +10,7 @@
 }
 
 .wrapper {
-	background-color: #ead7c0;
+	border-bottom: 1px solid #a1a3a6;
 }
 
 .menu {
@@ -34,6 +34,19 @@
 		color: #fff;
 		background-color: #585c5d;
 		border-radius: 5px 0;
+	}
+}
+
+.cart {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	p {
+		font-size: 15px;
+		background-color: #fa6464;
+		color: #fff;
+		padding: 0 5px;
+		border-radius: 5px;
 	}
 }
 
