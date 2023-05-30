@@ -53,11 +53,20 @@ export const cartSlice = createSlice({
 				(sum, item) => item.price * item.count + sum,
 				0
 			)
+		},
+		changeTotalPriceWithCoupon: (state, action: PayloadAction<number>) => {
+			const decrementPrice = (action.payload * state.totalPrice) / 100
+			state.totalPrice = state.totalPrice - decrementPrice
 		}
 	}
 })
 
-export const { addItemsToCart, clearCart, decrementCount, removeItemFromCart } =
-	cartSlice.actions
+export const {
+	addItemsToCart,
+	clearCart,
+	decrementCount,
+	removeItemFromCart,
+	changeTotalPriceWithCoupon
+} = cartSlice.actions
 
 export default cartSlice.reducer
