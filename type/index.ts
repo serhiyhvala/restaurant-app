@@ -8,6 +8,12 @@ export interface Category {
 	slug: string
 }
 
+export interface Coupon {
+	_id: string
+	coupon: string
+	discountPercent: number
+}
+
 export interface Product {
 	_id: string
 	title: string
