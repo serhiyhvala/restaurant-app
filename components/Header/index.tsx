@@ -34,7 +34,9 @@ const Header = () => {
 				</Link>
 				<ul className={styles.menu}>
 					{isLoading
-						? new Array(4).fill(null).map(item => <Loader />)
+						? new Array(4)
+								.fill(null)
+								.map(item => <Loader key={Math.random() * 100} />)
 						: data?.map(item => {
 								const isActive = category === item.slug ? styles.active : ''
 								return (

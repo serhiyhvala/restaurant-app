@@ -31,7 +31,9 @@ const ProductList = () => {
 	return (
 		<section className={styles.container}>
 			{loading
-				? new Array(20).fill(null).map(item => <Loader />)
+				? new Array(20)
+						.fill(null)
+						.map(item => <Loader key={Math.random() * 100} />)
 				: products.map(item => <ProductCard key={item._id} {...item} />)}
 		</section>
 	)
