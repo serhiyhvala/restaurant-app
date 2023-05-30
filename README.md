@@ -42,7 +42,7 @@ Link To Hosted Website: [restaurant-app-navy-zeta.vercel.app](https://restaurant
 ## Backend (Express API):
 
 Link To Repo: https://github.com/serhiyhvala/products-api
-Link to API Docs: https://products-api-p7cr.onrender.com/
+Link to API Docs: https://express-api-red.vercel.app/
 
 ### Stack:
 
