@@ -1,4 +1,8 @@
-import { addItemsToCart, decrementCount } from '@store/slices/cartSlice'
+import {
+	addItemsToCart,
+	decrementCount,
+	removeItemFromCart
+} from '@store/slices/cartSlice'
 import { Product } from '@type/index'
 import Image from 'next/image'
 import { FC } from 'react'
@@ -23,6 +27,12 @@ const CartItem: FC<ICartItemProps> = props => {
 					<p onClick={() => dispatch(decrementCount(_id))}>-</p>
 					<span>{count}</span>
 					<p onClick={() => dispatch(addItemsToCart({ ...props }))}>+</p>
+					<span
+						onClick={() => dispatch(removeItemFromCart(_id))}
+						className={styles.remove}
+					>
+						Remove
+					</span>
 				</div>
 			</div>
 		</div>

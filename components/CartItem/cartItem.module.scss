@@ -41,6 +41,11 @@
 	}
 }
 
+.remove {
+	font-size: 10px;
+	cursor: pointer;
+}
+
 @media screen and (max-width: 420px) {
 	.cartItem {
 		justify-content: center;
