@@ -1,6 +1,9 @@
+import { addItemsToCart } from '@store/slices/cartSlice'
 import { Product } from '@type/index'
 import Image from 'next/image'
 import { FC } from 'react'
+
+import { useAppDispatch } from '@hooks/index'
 
 import { cropText } from '@utils/cropText'
 
@@ -15,9 +18,24 @@ const ProductCard: FC<IProductCardProps> = ({
 	image,
 	slug,
 	title,
-	price
+	price,
+	_id
 }) => {
+	const dispatch = useAppDispatch()
 	const isMassExist = mass ? <p>{mass}</p> : ''
+	const addToCart = () => {
+		const newItem = {
+			category,
+			description,
+			mass,
+			image,
+			slug,
+			title,
+			price,
+			_id
+		}
+		dispatch(addItemsToCart(newItem))
+	}
 	return (
 		<div className={styles.card}>
 			<Image
@@ -35,7 +53,9 @@ const ProductCard: FC<IProductCardProps> = ({
 				</div>
 				<p>{cropText(description)}</p>
 				<div className={styles.buttons}>
-					<button className={styles.button}>Add to cart</button>
+					<button className={styles.button} onClick={addToCart}>
+						Add to cart
+					</button>
 					<button className={styles.button}>{price} UAH</button>
 				</div>
 			</div>
