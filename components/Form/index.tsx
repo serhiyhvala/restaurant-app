@@ -1,11 +1,13 @@
 'use client'
 
 import { BASE_URL } from '@constants/*'
-import { clearCart } from '@store/slices/cartSlice'
+import { changeTotalPriceWithCoupon, clearCart } from '@store/slices/cartSlice'
 import axios from 'axios'
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react'
 
 import { useAppDispatch, useAppSelector } from '@hooks/index'
+
+import { useGetCouponsQuery } from '@services/index'
 
 import styles from './form.module.scss'
 
@@ -16,7 +18,13 @@ interface IInputData {
 	phone: string
 }
 
+interface ICouponState {
+	coupon: string
+	disabled: boolean
+}
+
 const Form = () => {
+	const { data } = useGetCouponsQuery('/coupons')
 	const { cartItems, totalPrice } = useAppSelector(state => state.cart)
 	const dispatch = useAppDispatch()
 	const [inputData, setInputData] = useState<IInputData>({
@@ -25,8 +33,16 @@ const Form = () => {
 		address: '',
 		phone: ''
 	})
+	const [couponState, setCouponState] = useState<ICouponState>({
+		coupon: '',
+		disabled: false
+	})
 	const handleChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
 		setInputData({ ...inputData, [event.target.name]: event.target.value })
+	}
+
+	const handleChangeCoupon = (event: ChangeEvent<HTMLInputElement>) => {
+		setCouponState({ ...couponState, coupon: event.target.value })
 	}
 
 	const handleSubmitForm = async (event: FormEvent<HTMLFormElement>) => {
@@ -41,6 +57,14 @@ const Form = () => {
 		}
 		dispatch(clearCart())
 	}
+
+	useEffect(() => {
+		const coupon = data?.find(item => item.coupon === couponState.coupon)
+		if (coupon) {
+			dispatch(changeTotalPriceWithCoupon(coupon.discountPercent))
+			setCouponState({ ...couponState, disabled: true })
+		}
+	}, [couponState.coupon])
 	return (
 		<div className={styles.container}>
 			<h3>Submit Your Purchase</h3>
@@ -72,6 +96,13 @@ const Form = () => {
 					required
 					name='address'
 					onChange={handleChangeInput}
+				/>
+				<input
+					type='text'
+					placeholder='Enter Your Coupon'
+					name='coupon'
+					disabled={couponState.disabled}
+					onChange={handleChangeCoupon}
 				/>
 				<button type='submit' className={styles.button}>
 					Purchase!
