@@ -1,3 +1,4 @@
+import { ICartItems } from '@store/slices/cartSlice'
 import { CiIcons } from '@type/CiIcons'
 
 export interface Category {
@@ -16,4 +17,14 @@ export interface Product {
 	mass?: string
 	category: string
 	slug: string
+}
+
+export interface History {
+	_id: string
+	name: string
+	email: string
+	phone: string
+	address: string
+	orders: ICartItems[]
+	totalPrice: number
 }
