@@ -49,10 +49,13 @@ const Header = () => {
 								)
 						  })}
 				</ul>
-				<div>
+				<div className={styles.buttons}>
 					<Link href='/cart' className={styles.cart}>
 						<IconComponent icon='CiShoppingCart' size={30} />
 						{countItemsInCart > 0 && <p>{countItemsInCart}</p>}
+					</Link>
+					<Link href='/history' className={styles.cart}>
+						<IconComponent icon='CiAlarmOn' size={30} />
 					</Link>
 				</div>
 			</div>
