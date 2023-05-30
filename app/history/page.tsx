@@ -41,7 +41,9 @@ const History = () => {
 				<h3>You dont have any orders</h3>
 			) : (
 				ordersHistory.map(item => (
+					//@ts-ignore
 					<div className={styles.history} key={item._id}>
+						{/*@ts-ignore*/}
 						{item.orders.map(history => (
 							<div key={history._id} className={styles.order}>
 								<div>
@@ -59,6 +61,7 @@ const History = () => {
 								</div>
 							</div>
 						))}
+						{/*@ts-ignore*/}
 						<span>Total Price: {item.totalPrice}</span>
 					</div>
 				))
