@@ -23,7 +23,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-
+	cursor: default;
 	p {
 		background-color: #6a6ae5;
 		color: #fff;
@@ -40,12 +40,16 @@
 	gap: 20px;
 }
 
-.button {
+.button,
+.price {
 	padding: 5px;
 	background-color: #6a6ae5;
 	color: #fff;
 	border-radius: 5px;
 	border: none;
+}
+
+.button {
 	cursor: pointer;
 	transition: 0.4s all ease-in-out;
 
@@ -53,4 +57,8 @@
 		background-color: #9797fc;
 		color: #000;
 	}
+}
+
+.price {
+	cursor: default;
 }

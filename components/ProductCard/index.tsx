@@ -56,7 +56,7 @@ const ProductCard: FC<IProductCardProps> = ({
 					<button className={styles.button} onClick={addToCart}>
 						Add to cart
 					</button>
-					<button className={styles.button}>{price} UAH</button>
+					<button className={styles.price}>{price} UAH</button>
 				</div>
 			</div>
 		</div>
