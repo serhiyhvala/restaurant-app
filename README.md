@@ -1,6 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Restaurant application that offers a convenient way for users to explore and interact with various restaurants
 
-## Getting Started
+## Get Started
 
 First, run the development server:
 
@@ -12,23 +12,41 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000/) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Frontend (Next JS)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+Link To Hosted Website: [restaurant-app-navy-zeta.vercel.app](https://restaurant-app-navy-zeta.vercel.app/ "https://restaurant-app-navy-zeta.vercel.app")
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+### Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+- Next JS
+
+- Redux Toolkit
+
+- Redux Query
+
+- TypeScript
+
+- Sass
+
+
+- Additional Libraries (react-icons, prettier, eslint)
+
+## Backend (Express API):
+
+Link To Repo: https://github.com/serhiyhvala/products-api
+Link to API Docs: https://express-api-red.vercel.app/
+
+### Stack:
+
+- Express JS
+- Mongoose
+- Mongo DB
+- Additional Libraries (uuidv4)
