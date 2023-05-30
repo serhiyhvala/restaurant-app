@@ -1,0 +1,31 @@
+.cart {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 20px;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 30px;
+	flex-wrap: wrap;
+}
+
+.button {
+	background-color: #9797fc;
+	cursor: pointer;
+	border-radius: 5px;
+	color: #fff;
+	padding: 5px 10px;
+}
+
+@media screen and (max-width: 350px) {
+	.buttons {
+		justify-content: center;
+	}
+}
