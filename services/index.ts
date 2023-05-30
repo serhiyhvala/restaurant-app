@@ -1,6 +1,6 @@
 import { BASE_URL } from '@constants/*'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Category } from '@type/index'
+import { Category, Coupon } from '@type/index'
 
 export const productsApi = createApi({
 	reducerPath: 'productsApi',
@@ -10,8 +10,11 @@ export const productsApi = createApi({
 	endpoints: builder => ({
 		getCategories: builder.query<Category[], string>({
 			query: name => `${name}`
+		}),
+		getCoupons: builder.query<Coupon[], string>({
+			query: name => `${name}`
 		})
 	})
 })
 
-export const { useGetCategoriesQuery } = productsApi
+export const { useGetCategoriesQuery, useGetCouponsQuery } = productsApi
