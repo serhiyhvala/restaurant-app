@@ -64,7 +64,7 @@ const Form = () => {
 			dispatch(changeTotalPriceWithCoupon(coupon.discountPercent))
 			setCouponState({ ...couponState, disabled: true })
 		}
-	}, [couponState.coupon])
+	}, [couponState.coupon, cartItems])
 	return (
 		<div className={styles.container}>
 			<h3>Submit Your Purchase</h3>
