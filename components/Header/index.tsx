@@ -17,6 +17,8 @@ import styles from './header.module.scss'
 const Header = () => {
 	const { data, isLoading } = useGetCategoriesQuery('/categories')
 	const { category } = useAppSelector(state => state.product)
+	const { cartItems } = useAppSelector(state => state.cart)
+	const countItemsInCart = cartItems.reduce((sum, item) => item.count + sum, 0)
 	const dispatch = useAppDispatch()
 	return (
 		<header className={styles.wrapper}>
@@ -47,9 +49,10 @@ const Header = () => {
 								)
 						  })}
 				</ul>
-				<div className={styles.cart}>
-					<Link href='/'>
+				<div>
+					<Link href='/cart' className={styles.cart}>
 						<IconComponent icon='CiShoppingCart' size={30} />
+						{countItemsInCart > 0 && <p>{countItemsInCart}</p>}
 					</Link>
 				</div>
 			</div>
