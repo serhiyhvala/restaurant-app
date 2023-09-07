@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "products-api-p7cr.onrender.com",
+        hostname: "express-api-red.vercel.app",
         port: '',
         pathname: "/**"
       }
